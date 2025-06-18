@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+:root{
+    --guestColor: #fded02; 
+    --domainColor: #01a252;
+    --terminalColor: #090300;
+    --artColor: #a5a2a2;
+    --borderColor: green;
+    --textAreaColor: var(--artColor);
+    --loadingColor: #ffeaaa;
+    --permission: red;
+    --termBack: #1c1b22;
+}
+
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-color: var(--termBack);
+}
+
+
+.art{
+    color: var(--artColor);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.terminal{
+    margin: 1rem;
+    padding-left: 1.5rem;
+    border: green solid 2px;
+    border-radius: 1%;
+    background-color: var(--terminalColor);
+    height: 95%;
+}
+
+.header{
+    margin-top: 2rem;
+    font-family: 'Cascadia Code',monospace;
+    color: var(--artColor);
+}
+
+.head{
+    font-size: 1.2rem;
+}
+
+.nameart{
+    font-size: 1rem;
+    margin-top: 2rem;
+    color: var(--artColor);
+}
+
+.cmdline{
+    font-family: 'Cascadia Code',monospace;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+
+.prompt{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.textarea{
+    border: none;
+    outline: none;
+    font-family: 'Cascadia Code',monospace;
+    resize: none;
+    overflow: hidden;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--artColor);
+    background-color: var(--terminalColor);
+    caret-color: var(--artColor);
+}
+
+
+
+.helpcommands{
+    font-size: 1.2rem;
+    font-family: 'Cascadia Code',monospace;
+    display: inline-block;
+    margin-top: 0.4rem;
+    color: var(--artColor);
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.neofetch{
+    font-size: 1rem;
+    font-family: 'Cascadia Code',monospace;
+    margin-top: 0.2rem;
+    color: var(--artColor);
+}
+
+.devtext{
+    font-size: 1rem;
+    font-family: 'Cascadia Code',monospace;
+    margin-top: 0.2rem;
+    color: var(--artColor);
+}
+
+.loading{
+    font-size: 1rem;
+    font-family: 'Cascadia Code',monospace;
+    margin-top: 0.2rem;
+    color: var(--loadingColor);
+}
+
+.permission{
+    color: var(--permission);
+}
+
+.whoami{
+    font-size: 1.7rem; 
+    font-family: "Fira Code", monospace;
+    display: inline-block;
+    margin-top: 0.2rem;
+    color: var(--artColor);
+    margin-bottom: 0.1rem;
+}
+
+.whoami p{
+    line-height: 1.6;
+    padding-top: 1rem;
+    padding-bottom: 0.7rem;
+}
+
+
+.guest{
+    color: var(--guestColor);
+}
+
+.domain{
+    color: var(--domainColor);
+}
+
+.at, .letters{
+    color: var(--artColor);
+    font-size: 1.2rem;
+}
