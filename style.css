@@ -16,6 +16,7 @@
     --loadingColor: #ffeaaa;
     --permission: red;
     --termBack: #1c1b22;
+    --letterColor: var(--artColor);
 }
 
 html{
@@ -38,7 +39,7 @@ body{
 .terminal{
     margin: 1rem;
     padding-left: 1.5rem;
-    border: green solid 2px;
+    border: var(--borderColor) solid 2px;
     border-radius: 1%;
     background-color: var(--terminalColor);
     height: 95%;
@@ -155,6 +156,24 @@ body{
 }
 
 .at, .letters{
-    color: var(--artColor);
+    color: var(--letterColor);
     font-size: 1.2rem;
+}
+
+.pass{
+    display: inline-block;
+    font-size: 1.2rem;
+    font-family: 'Cascadia Code',monospace;
+    display: inline-block;
+    margin-top: 0.4rem;
+    color: var(--artColor);
+}
+
+.pass span{
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.pass .textarea {
+    margin-left: 0rem;
 }

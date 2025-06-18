@@ -2,7 +2,10 @@ helps = ['whoami','theme','date','echo','sudo','repo','clear','email','projects'
 cmdsin = []
 let i=-1;
 
+let themeno = 0;
+
 const terminal = document.getElementsByClassName("terminal")[0];
+const audioel = document.getElementById("audio");
 
     
 function handleCommand(cmd,outputbox) {
@@ -23,6 +26,8 @@ function handleCommand(cmd,outputbox) {
         break;
       case "theme":
         console.log("theme");
+        changeTheme();
+        createPrompt();
         break;
       case "date":
         console.log("date");
@@ -90,20 +95,41 @@ function renderEcho(cmd,outputbox,message){
 
 function renderChallenge(outputbox){
   console.log("challenge")
+  console.log("Do you know where the webcrawlers are banned?");
   const space1 = document.createElement("div");
-  space1.classList.add("pass","helpcommands");
+  space1.classList.add("pass");
   const text = document.createElement("span");
   text.innerText = "Enter password: ";
   const input = document.createElement("input")
+  input.focus();
   input.className = "textarea";
-  space1.append(text,input);
+  const text2 = document.createElement("span");
+  text2.classList.add("pass");
+  text2.innerHTML = "Mudinja Kandupudi!";
+  text2.style.color = "green";
+  space1.append(text2,document.createElement("br"),text,input);
   outputbox.append(space1);
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       input.setAttribute("disabled", "true");
-
       const cmd = input.value;
-      if(cmd == "Hello World") console.log("Congrats! You completed the challenge successfully.")
+      if(cmd == "Hello World") {
+        console.log("challenge completed")
+        const text3 = document.createElement("span");
+        text3.classList.add("pass");
+        text3.innerText = "Congrats! You completed the challenge successfully.";
+        text3.style.color = "green";
+        audioel.play();
+        space1.append(document.createElement("br"),text3);
+        createPrompt();
+      }else{
+        const text4 = document.createElement("span");
+        text4.classList.add("pass");
+        text4.innerText = "Wrong Password!";
+        text4.style.color = "red";
+        space1.append(document.createElement("br"),text4);
+        createPrompt();
+      }
     }
   })
 }
@@ -119,22 +145,45 @@ function renderNeo(outputbox){
     cpuThreads: navigator.hardwareConcurrency || "Unknown"
   };
 
+    const text = document.createElement("p");
+    text.innerText=`Sys Info
+    ---------
+    OS Platform   : ${info.platform}
+    Browser       : ${info.browser}
+    Screen Size   : ${info.screen}
+    Language      : ${info.language}
+    Timezone      : ${info.timezone}
+    RAM (approx.) : ${info.memory} GB
+    CPU Threads   : ${info.cpuThreads}
+    `;
+    text.classList.add("neofetch");
+    outputbox.append(text);
+    createPrompt();
+   }
 
 
-const text = document.createElement("p");
-text.innerText=`Sys Info
----------
-OS Platform   : ${info.platform}
-Browser       : ${info.browser}
-Screen Size   : ${info.screen}
-Language      : ${info.language}
-Timezone      : ${info.timezone}
-RAM (approx.) : ${info.memory} GB
-CPU Threads   : ${info.cpuThreads}
-`;
-text.classList.add("neofetch");
-outputbox.append(text);
-createPrompt();
+function changeTheme(){
+  if(themeno == 0){
+  console.log("Theme changed")
+  document.documentElement.style.setProperty('--guestColor','#d79921');
+
+  document.documentElement.style.setProperty('--terminalColor','#282828');
+  document.documentElement.style.setProperty('--artColor','#ebdbb2');
+  document.documentElement.style.setProperty('--borderColor','#98971a');
+  document.documentElement.style.setProperty('--domainColor','#98971a');
+  document.documentElement.style.setProperty('--letterColor','#a89984');
+  themeno=1;
+}else{
+  console.log("Theme changed")
+  document.documentElement.style.setProperty('--guestColor','#fded02');
+
+  document.documentElement.style.setProperty('--terminalColor','#090300');
+  document.documentElement.style.setProperty('--artColor','#a5a2a2');
+  document.documentElement.style.setProperty('--borderColor','green');
+  document.documentElement.style.setProperty('--domainColor','#01a252');
+  document.documentElement.style.setProperty('--letterColor','#a89984'); 
+  themeno=0;
+}
 }
 
 function renderRepo(outputbox){
@@ -297,6 +346,6 @@ function createPrompt() {
 }
 
 window.onload = () => {
-  createPrompt(); 
+  createPrompt();
+  changeTheme();
 };
-
