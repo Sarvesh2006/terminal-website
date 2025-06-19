@@ -27,7 +27,7 @@ cd terminal-website
 ## ✨Customization
 
 
-=Edit script.js to change command output.
+-Edit script.js to change command output.
 
 -Replace text in about, projects, and contact sections.
 
