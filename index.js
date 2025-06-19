@@ -342,8 +342,15 @@ function setTheme(theme){
 }
 }
 
-window.onload = () => {
+window.addEventListener(('DOMContentLoaded'), () => {
   let theme = localStorage.getItem('theme');
+   if (!theme) {
+    theme = "yellow";                  
+    localStorage.setItem("theme", theme);
+  }
   setTheme(theme);
   createPrompt();
-};
+});
+
+
+
