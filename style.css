@@ -135,7 +135,7 @@ body{
     font-size: 1.7rem; 
     font-family: "Fira Code", monospace;
     display: inline-block;
-    margin-top: 0.2rem;
+    margin-top: 0.4rem;
     color: var(--artColor);
     margin-bottom: 0.1rem;
 }
@@ -143,7 +143,6 @@ body{
 .whoami p{
     line-height: 1.6;
     padding-top: 1rem;
-    padding-bottom: 0.7rem;
 }
 
 

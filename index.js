@@ -2,7 +2,8 @@ helps = ['whoami','theme','date','echo','sudo','repo','clear','email','projects'
 cmdsin = []
 let i=-1;
 
-let themeno = 0;
+
+
 
 const terminal = document.getElementsByClassName("terminal")[0];
 const audioel = document.getElementById("audio");
@@ -21,49 +22,38 @@ function handleCommand(cmd,outputbox) {
         break;
       case "whoami":
         whoami(outputbox);
-        console.log("whoami");
         createPrompt();
         break;
       case "theme":
-        console.log("theme");
-        changeTheme();
+        changeTheme(localStorage.getItem("theme"));
         createPrompt();
         break;
       case "date":
-        console.log("date");
         renderDate(outputbox);
         break;
       case "neofetch":
-        console.log("neofetch");
         renderNeo(outputbox);
         break;
       case "echo":
-        console.log("echo");
         renderEcho(cmd,outputbox);
         break;
       case "sudo":
-        console.log("sudo");
         renderSudo(outputbox);
         break;
       case "repo":
-        console.log("repo");
         renderRepo(outputbox);
         break;
       case "clear":
-        console.log("clear");
         terminal.innerHTML='<br><br>';
         createPrompt();
         break;
       case "email":
-        console.log("email");
         emailFn(outputbox);
         break;
       case "projects":
-        console.log("projects");
         renderProjects(outputbox);
         break;
       case "challenge":
-        console.clear();
         renderChallenge(outputbox);
         break;
       default:
@@ -162,27 +152,17 @@ function renderNeo(outputbox){
    }
 
 
-function changeTheme(){
-  if(themeno == 0){
-  console.log("Theme changed")
-  document.documentElement.style.setProperty('--guestColor','#d79921');
-
-  document.documentElement.style.setProperty('--terminalColor','#282828');
-  document.documentElement.style.setProperty('--artColor','#ebdbb2');
-  document.documentElement.style.setProperty('--borderColor','#98971a');
-  document.documentElement.style.setProperty('--domainColor','#98971a');
-  document.documentElement.style.setProperty('--letterColor','#a89984');
-  themeno=1;
-}else{
-  console.log("Theme changed")
-  document.documentElement.style.setProperty('--guestColor','#fded02');
-
-  document.documentElement.style.setProperty('--terminalColor','#090300');
-  document.documentElement.style.setProperty('--artColor','#a5a2a2');
-  document.documentElement.style.setProperty('--borderColor','green');
-  document.documentElement.style.setProperty('--domainColor','#01a252');
-  document.documentElement.style.setProperty('--letterColor','#a89984'); 
-  themeno=0;
+function changeTheme(theme){
+  if(theme == "dark"){
+  console.log("Theme changed to yellow")
+  localStorage.setItem("theme","yellow");
+  theme="yellow";
+  setTheme(theme);
+}else if(theme=="yellow"){
+  console.log("Theme changed to dark");
+  localStorage.setItem("theme","dark");
+  theme="dark";
+  setTheme(theme);
 }
 }
 
@@ -268,8 +248,6 @@ function whoami(outputbox) {
   detailsPara.innerHTML = `
     Interests: Web Development, Cyber Security, Ethical Hacking, LINUX<br>
     Currently: Exploring systems programming, building a terminal-style portfolio, and experimenting with open-source tech<br>
-    Known for: Blending creativity with code, solving problems with curiosity<br>
-    Goal: To create meaningful digital experiences and grow as a full-stack developer<br>
     Website: sarvesh.dev (coming soon)<br>
     Philosophy: Talking is cheap. Show me the code! - Linus Torvalds
     <br>
@@ -345,7 +323,27 @@ function createPrompt() {
   textArea.focus();
 }
 
+
+function setTheme(theme){
+  if(theme == "yellow"){
+  document.documentElement.style.setProperty('--guestColor','#d79921');
+  document.documentElement.style.setProperty('--terminalColor','#282828');
+  document.documentElement.style.setProperty('--artColor','#ebdbb2');
+  document.documentElement.style.setProperty('--borderColor','#98971a');
+  document.documentElement.style.setProperty('--domainColor','#98971a');
+  document.documentElement.style.setProperty('--letterColor','#a89984');
+}else{
+  document.documentElement.style.setProperty('--guestColor','#fded02');
+  document.documentElement.style.setProperty('--terminalColor','#090300');
+  document.documentElement.style.setProperty('--artColor','#a5a2a2');
+  document.documentElement.style.setProperty('--borderColor','green');
+  document.documentElement.style.setProperty('--domainColor','#01a252');
+  document.documentElement.style.setProperty('--letterColor','#a89984'); 
+}
+}
+
 window.onload = () => {
+  let theme = localStorage.getItem('theme');
+  setTheme(theme);
   createPrompt();
-  changeTheme();
 };
