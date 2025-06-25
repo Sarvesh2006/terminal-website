@@ -171,7 +171,7 @@ function renderRepo(outputbox){
   text.innerText = "Opening repository...";
   text.classList.add("helpcommands");
   outputbox.append(text);
-  window.open("https://github.com/Sarvesh2006?tab=repositories","_blank");
+  window.open("https://github.com/root-sarvesh?tab=repositories","_blank");
   createPrompt();
 }
 
