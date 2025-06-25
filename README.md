@@ -4,7 +4,7 @@ A personal portfolio styled like a terminal interface, built using HTML, CSS, an
 
 
 ## 🌐 Live Preview
-https://sarvesh2006.github.io/terminal-website/
+https://root-sarvesh.github.io/terminal-website/
 
 ![image](https://github.com/user-attachments/assets/987aca24-69f9-42f2-a19a-122e953f38d1)
 
